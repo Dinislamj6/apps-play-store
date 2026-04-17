@@ -1,11 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import AppCard from '../../component/ui/AppCard';
+import { HashLoader } from 'react-spinners';
 
 const Apps = () => {
+    const [apps, setApps] = useState([])
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await fetch("/data.json")
+            const data = await res.json();
+
+            setTimeout(() => {
+                setApps(data)
+                setLoading(false)
+            }, 1500)
+        }
+        fetchData();
+    }, [])
     return (
-        <div>
-             apps page  
+        <div className='max-w-7xl mx-auto my-20'>
+                {/* All apps header */}
+            <div className='text-center mb-8 space-y-3'>
+                <h2 className='text-[#001931] font-bold text-4xl'>Our All Applications</h2>
+                <p className='text-[#627382]'>Explore All Apps on the Market developed by us. We code for Millions</p>
+            </div>
+
+            {/* all app dynamic */}
+            {
+                loading ? (<div className="min-h-screen flex items-center justify-center">
+                    <HashLoader color='#9F62F2' />
+                </div>) : (
+                    <div className='grid grid-cols-1 gap-5  md:grid-cols-3'>
+                        {
+                            apps.map(app => <div key={app.id}>
+                                <AppCard app={app}></AppCard>
+                            </div>)
+                        }
+                    </div>
+                )
+            }
         </div>
     );
 };
-   
+
 export default Apps;
