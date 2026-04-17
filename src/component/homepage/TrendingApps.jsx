@@ -3,27 +3,29 @@ import { FaDownload, FaStar } from 'react-icons/fa';
 import AppCard from '../ui/AppCard';
 import { HashLoader } from 'react-spinners';
 import { Link } from 'react-router';
+import useApps from '../../hook/useApps';
 
 // const appsPromise = fetch("/data.json").then(res => res.json())
 
 const TrendingApps = () => {
     // const apps = use(appsPromise)
     // console.log(apps);
-    const [apps, setApps] = useState([])
-    const [loading, setLoading] = useState(true)
+    const {apps,loading} = useApps();
+    // const [apps, setApps] = useState([])
+    // const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const res = await fetch("/data.json")
-            const data = await res.json();
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const res = await fetch("/data.json")
+    //         const data = await res.json();
 
-            setTimeout(() => {
-                setApps(data)
-                setLoading(false)
-            }, 1500)
-        }
-        fetchData();
-    }, [])
+    //         setTimeout(() => {
+    //             setApps(data)
+    //             setLoading(false)
+    //         }, 1500)
+    //     }
+    //     fetchData();
+    // }, [])
 
 
     return (
