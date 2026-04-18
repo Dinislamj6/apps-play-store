@@ -3,7 +3,8 @@ import RootLayout from "../layout/RootLayout";
 import NotFound from "../notfoundpage/NotFound";
 import HomePage from "../pages/homePage/HomePage";
 import Apps from "../pages/apps/Apps";
-import InstallPage from "../pages/instalation/installPage";
+// import InstallPage from "../pages/instalation/installPage";
+import InstallPage from "../pages/instalation/InstallPage";
 import AppsDetails from "../pages/appdetails/AppsDetails";
 import Dashboard from "../pages/dashboard/Dashboard";
 

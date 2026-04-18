@@ -18,7 +18,7 @@ const InstallPage = () => {
     return (
         <div className='container mx-auto my-10 h-screen'>
             <div className='text-center my-10'>
-                <h2 className='text-[#001931] font-bold text-3xl'>Your Installed Apps</h2>
+                <h2 className='text-purple-400 font-bold text-3xl'>Your Installed Apps</h2>
                 <p className='text-[#627382]'>Explore All Trending Apps on the Market developed by us</p>
             </div>
             {

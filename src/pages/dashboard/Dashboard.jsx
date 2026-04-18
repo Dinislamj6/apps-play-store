@@ -13,7 +13,7 @@ const Dashboard = () => {
         { name: 'Uninstalled', value: uninstallApps, fill: '#FFBB28' },
     ]
     return (
-        <div className='my-10 shadow-lg p-10 rounded-md border border-slate-300 container mx-auto'>
+        <div className='my-10 shadow-lg p-10 rounded-md border border-slate-300 container mx-auto ring-blue-500/50'>
             <h2 className='font-semibold text-3xl mb-16 text-center'>Installed and uninstalled apps</h2>
             <PieChart style={{ width: '100%',
                  maxWidth: '500px',
