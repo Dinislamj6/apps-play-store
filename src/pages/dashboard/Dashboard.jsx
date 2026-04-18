@@ -5,7 +5,7 @@ import useApps from '../../hook/useApps';
 
 const Dashboard = () => {
      const { installApps } = useContext(InstallAppsContext)
-       const {apps, loading} = useApps() 
+       const {apps} = useApps() 
        const uninstallApps = apps.length - installApps.length;
        console.log(uninstallApps); 
     const data = [

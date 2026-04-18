@@ -16,11 +16,15 @@ const InstallPage = () => {
     }
 
     return (
-        <div className='container mx-auto my-10'>
+        <div className='container mx-auto my-10 h-screen'>
+            <div className='text-center my-10'>
+                <h2 className='text-[#001931] font-bold text-3xl'>Your Installed Apps</h2>
+                <p className='text-[#627382]'>Explore All Trending Apps on the Market developed by us</p>
+            </div>
             {
                 installApps.map((app, ind) => {
                     return <div key={ind}>
-                        <div className='flex justify-between  items-center gap-4 shadow-xl p-4 rounded-md bg-slate-100 mb-4'>
+                        <div className='flex justify-between  items-center gap-4 shadow-xl p-4 rounded-md bg-slate-100 mb-4 inset-shadow-indigo-500'>
                             <div className='flex gap-2'>
                                 <img src={app.image} alt="" className='h-[50px] w-auto' />
                                 <div>

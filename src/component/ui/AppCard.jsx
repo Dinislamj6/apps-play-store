@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 const AppCard = ({app}) => {
     return (
         <Link to={`/apps/${app.id}`} className='card  h-full'>
-            <div className="w-full h-full bg-base-100 shadow-sm">
+            <div className="w-full h-full bg-base-100 shadow-sm transition delay-100 duration-400 ease-in-out hover:-translate-y-1 hover:scale-100 shadow-cyan-500/50">
                 <figure>
                     <img
                         src={app.image}  alt='apps image' className='h-[200px] w-auto' />
