@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useParams } from 'react-router';
 import useApps from '../../hook/useApps';
 import { BiDownload, BiSolidLike } from 'react-icons/bi';
@@ -6,25 +6,37 @@ import { FaDownload } from 'react-icons/fa';
 import { IoStarSharp } from 'react-icons/io5';
 import { AiTwotoneLike } from 'react-icons/ai';
 import { HashLoader } from 'react-spinners';
+// import { InstallAppsContext } from '../../context/InstallAppsContext';
+import { toast } from 'react-toastify';
+import { InstallAppsContext } from '../../context/InstallAppsProvider';
 
 const AppsDetails = () => {
     const { id } = useParams();
     const { apps, loading } = useApps();
     const expectedApp = apps.find(app => app.id === Number(id))
-   
-    const [installApps,setInstallApps] = useState([]);
-    
-    if(loading){
+
+    const { installApps, setInstallApps } = useContext(InstallAppsContext)
+    console.log(installApps);
+
+    if (loading) {
         return <div className="min-h-screen flex items-center justify-center">
-                    <HashLoader color='#9F62F2' />
-                </div>
+            <HashLoader color='#9F62F2' />
+        </div>
     }
 
-    const handelInstallApps = () => {
-        setInstallApps([...installApps,expectedApp])
-        console.log(installApps);
+    const handelInstallApps = (expectedApp) => {
+        console.log(expectedApp);
+        const existinstall = installApps.find(item => item.id == expectedApp.id)
+        if (existinstall) {
+            toast.error((`${expectedApp.title} is already installed`))
+            return
+        }
+          setInstallApps([...installApps, expectedApp])
+            toast.success(`${expectedApp.title} is installed!`)
+
+
     }
-    
+
 
     return (
         <div className='max-w-7xl mx-auto'>
@@ -52,16 +64,16 @@ const AppsDetails = () => {
                             <p className='font-bold text-2xl'>{expectedApp?.ratingAvg}</p>
                         </div>
                         <div className='space-y-2 flex flex-col items-center'>
-                           <BiSolidLike  className='font-bold text-3xl' color='purple' />
+                            <BiSolidLike className='font-bold text-3xl' color='purple' />
                             <h2 className='font-semibold text-xl'>Total Reviews</h2>
                             <p className='font-bold text-2xl'>{expectedApp?.reviews}</p>
                         </div>
                     </div>
-                     <div className='flex justify-center mt-3'>
-                          <button onClick={() => handelInstallApps()} className='btn bg-[#00D390]'>Install Now ({expectedApp?.size}MB)</button>
-                     </div>
+                    <div className='flex justify-center mt-3'>
+                        <button onClick={() => handelInstallApps(expectedApp)} className='btn bg-[#00D390]'>Install Now ({expectedApp?.size}MB)</button>
+                    </div>
                 </div>
-          
+
             </div>
         </div>
     );

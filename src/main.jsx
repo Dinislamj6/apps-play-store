@@ -6,11 +6,15 @@ import RootLayout from './layout/RootLayout';
 import Apps from './pages/apps/Apps';
 import HomePage from './pages/homePage/HomePage';
 import { router } from './router/Router';
+import InstallAppsProvider from './context/InstallAppsProvider';
+import { ToastContainer } from 'react-toastify';
 
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+   <InstallAppsProvider>
+      <RouterProvider router={router} />
+   </InstallAppsProvider>
   </StrictMode>,
 )
