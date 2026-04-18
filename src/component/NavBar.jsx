@@ -11,10 +11,11 @@ const NavBar = () => {
                 <img src={logoImg} alt="Logo"  className='w-[50px]'/>
                 <h2 className='font-bold text-xl bg-linear-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent'>HERO.IO</h2>
              </div>
-        <ul  className='flex justify-between items-center gap-4'>
+         <ul  className='flex justify-between items-center gap-4'>
             <li><NavLink to={"/"} className={({isActive}) => `font-semibold ${isActive ? 'text-purple-600 border-b-2 border-purple-600' : ''}`}>Home</NavLink></li>
             <li><NavLink to={"/apps"} className={({isActive}) => `font-semibold ${isActive ? 'text-purple-600 border-b-2 border-purple-600' : ''}`}>Apps</NavLink></li>
             <li><NavLink to={"/install"} className={({isActive}) => `font-semibold ${isActive ? 'text-purple-600 border-b-2 border-purple-600' : ''}`}>Installation</NavLink></li>
+            <li><NavLink to={"/dashboard"} className={({isActive}) => `font-semibold ${isActive ? 'text-purple-600 border-b-2 border-purple-600' : ''}`}>Dashboard</NavLink></li>
            
         </ul>
         <button className='btn bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-white'> <FaGithubAlt />Contribute</button>

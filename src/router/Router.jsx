@@ -5,6 +5,7 @@ import HomePage from "../pages/homePage/HomePage";
 import Apps from "../pages/apps/Apps";
 import InstallPage from "../pages/instalation/installPage";
 import AppsDetails from "../pages/appdetails/AppsDetails";
+import Dashboard from "../pages/dashboard/Dashboard";
 
 export const router = createBrowserRouter(
   [
@@ -30,6 +31,10 @@ export const router = createBrowserRouter(
         {
           path: "/install",
           element: <InstallPage></InstallPage>
+        },
+        {
+          path: "/dashboard",
+          element: <Dashboard></Dashboard>
         }
       ],
 

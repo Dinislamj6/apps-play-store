@@ -5,21 +5,7 @@ import useApps from '../../hook/useApps';
 
 const Apps = () => {
     const {apps, loading} = useApps() 
-    // const [apps, setApps] = useState([])
-    // const [loading, setLoading] = useState(true)
-
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         const res = await fetch("/data.json")
-    //         const data = await res.json();
-
-    //         setTimeout(() => {
-    //             setApps(data)
-    //             setLoading(false)
-    //         }, 1500)
-    //     }
-    //     fetchData();
-    // }, [])
+   
     return (
         <div className='max-w-7xl mx-auto my-20'>
                 {/* All apps header */}
